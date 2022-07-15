@@ -21,4 +21,55 @@ public class cartItemsModel {
 
     private int quantity;
     private int totalCost;
+
+    public cartItemsModel() {
+    }
+
+    public cartItemsModel(int id, CartModel cart, MobileModel mobile, int quantity, int totalCost) {
+        Id = id;
+        this.cart = cart;
+        this.mobile = mobile;
+        this.quantity = quantity;
+        this.totalCost = totalCost;
+    }
+
+    public int getId() {
+        return Id;
+    }
+
+    public void setId(int id) {
+        Id = id;
+    }
+
+    public CartModel getCart() {
+        return cart;
+    }
+
+    public void setCart(CartModel cart) {
+        this.cart = cart;
+    }
+
+    public MobileModel getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(MobileModel mobile) {
+        this.mobile = mobile;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public int getTotalCost() {
+        return totalCost;
+    }
+
+    public void setTotalCost(int totalCost) {
+        this.totalCost = totalCost;
+    }
 }
