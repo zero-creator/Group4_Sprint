@@ -18,6 +18,7 @@ public class CartModel {
     @OneToMany(mappedBy = "cart")
     private List<cartItemsModel> cartItemL=new ArrayList<>();
 
+
     public CartModel() {
     }
 
@@ -60,3 +61,6 @@ public class CartModel {
         this.cartItemL = cartItemL;
     }
 }
+
+}
+

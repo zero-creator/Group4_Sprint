@@ -22,6 +22,7 @@ public class UserModel {
     @OneToOne(mappedBy = "user")
     private CartModel care;
 
+
     public UserModel() {
     }
 
@@ -100,3 +101,6 @@ public class UserModel {
         this.care = care;
     }
 }
+
+}
+
