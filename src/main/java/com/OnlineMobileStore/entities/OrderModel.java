@@ -13,4 +13,36 @@ public class OrderModel {
     private UserModel user;//Foreign key
     private int TotalCost;
 
+    public OrderModel() {
+    }
+
+    public OrderModel(int orderId, UserModel user, int totalCost) {
+        this.orderId = orderId;
+        this.user = user;
+        TotalCost = totalCost;
+    }
+
+    public int getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(int orderId) {
+        this.orderId = orderId;
+    }
+
+    public UserModel getUser() {
+        return user;
+    }
+
+    public void setUser(UserModel user) {
+        this.user = user;
+    }
+
+    public int getTotalCost() {
+        return TotalCost;
+    }
+
+    public void setTotalCost(int totalCost) {
+        TotalCost = totalCost;
+    }
 }
