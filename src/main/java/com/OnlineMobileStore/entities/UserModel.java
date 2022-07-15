@@ -1,6 +1,9 @@
 package com.OnlineMobileStore.entities;
 
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "User_Model")
@@ -13,4 +16,9 @@ public class UserModel {
     private Long mobileNumber;
     private String email_id;
     private String userRole;
+
+    @OneToMany(mappedBy = "user")
+    private List<OrderModel> orderL=new ArrayList<>();
+    @OneToOne(mappedBy = "user")
+    private CartModel care;
 }

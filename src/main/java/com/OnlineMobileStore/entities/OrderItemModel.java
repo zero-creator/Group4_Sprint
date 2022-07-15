@@ -1,10 +1,10 @@
 package com.OnlineMobileStore.entities;
 
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import javax.xml.crypto.Data;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class OrderItemModel {
     private int Id;
@@ -16,5 +16,8 @@ public class OrderItemModel {
     private MobileModel mobile;//Foreign key
     private int quantity;
     private int totalCost;
-    private Data dataOfOrder;
+    private LocalDate dataOfOrder;
+
+    @OneToMany(mappedBy = "user")
+    private List<OrderModel> orderL=new ArrayList<>();
 }
