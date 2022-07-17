@@ -1,48 +1,69 @@
 package com.OnlineMobileStore.entities;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.ZoneId;
 
 @Entity
-@Table(name = "Order_Model")
+@Table(name = "OrderModel")
 public class OrderModel {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int orderId;
-    @ManyToOne
-    @JoinColumn(name = "user_Fk")
-    private UserModel user;//Foreign key
-    private int TotalCost;
+    private int orderID;
+    private int userId;
+    private float totalCost;
+    private String  status;
+    private LocalDate orderDate;
 
     public OrderModel() {
     }
 
-    public OrderModel(int orderId, UserModel user, int totalCost) {
-        this.orderId = orderId;
-        this.user = user;
-        TotalCost = totalCost;
+    public OrderModel(int userId, float totalCost) {
+        this.userId = userId;
+        this.totalCost = totalCost;
+        this.status = status="successful";
+        this.orderDate=LocalDate.now(ZoneId.of("GMT+05:30"));
+
     }
 
-    public int getOrderId() {
-        return orderId;
+    public int getOrderID() {
+        return orderID;
     }
 
-    public void setOrderId(int orderId) {
-        this.orderId = orderId;
+    public void setOrderID(int orderID) {
+        this.orderID = orderID;
     }
 
-    public UserModel getUser() {
-        return user;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setUser(UserModel user) {
-        this.user = user;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
-    public int getTotalCost() {
-        return TotalCost;
+    public float getTotalCost() {
+        return totalCost;
     }
 
-    public void setTotalCost(int totalCost) {
-        TotalCost = totalCost;
+    public void setTotalCost(float totalCost) {
+        this.totalCost = totalCost;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public LocalDate getOrderDate() {
+        return orderDate;
+    }
+
+    public void setOrderDate(LocalDate orderDate) {
+        this.orderDate = orderDate;
     }
 }

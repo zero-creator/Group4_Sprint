@@ -3,7 +3,7 @@ package com.OnlineMobileStore.entities;
 import javax.persistence.*;
 import java.time.LocalDate;
 @Entity
-@Table(name = "Mobile_Model")
+@Table(name = "MobileModel")
 public class MobileModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,20 +20,10 @@ public class MobileModel {
     private String companyName;
 
     @ManyToOne
-    @JoinColumn(name = "category_fk")
-
-    private CategoryModel category; //Foreign key
+    @JoinColumn(name="category")
+    private CategoryModel category;
 
     public MobileModel() {
-    }
-
-    public MobileModel(String mobileName, float mobileCost, LocalDate mfd, String modelNumber, String companyName, CategoryModel category) {
-        this.mobileName = mobileName;
-        this.mobileCost = mobileCost;
-        this.mfd = mfd;
-        this.modelNumber = modelNumber;
-        this.companyName = companyName;
-        this.category = category;
     }
 
     public int getMobileId() {
@@ -92,3 +82,4 @@ public class MobileModel {
         this.category = category;
     }
 }
+

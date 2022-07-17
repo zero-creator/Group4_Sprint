@@ -1,66 +1,73 @@
 package com.OnlineMobileStore.entities;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
-@Table(name = "Cart_Model")
+@Table(name = "CartModel")
 public class CartModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int cartId;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_Fk")
-    private UserModel user;//Foreign key
-    private int totalCost;
+    private int id;
 
-    @OneToMany(mappedBy = "cart")
-    private List<cartItemsModel> cartItemL=new ArrayList<>();
+    //@OneToOne(cascade = CascadeType.ALL)
+    //@JoinColumn(name = "product_id")
+    private int product;//Foreign key
 
+
+    private int quantity;
+    private int userid;
+    private float price;
 
     public CartModel() {
     }
 
-    public CartModel(int cartId, UserModel user, int totalCost, List<cartItemsModel> cartItemL) {
-        this.cartId = cartId;
-        this.user = user;
-        this.totalCost = totalCost;
-        this.cartItemL = cartItemL;
+    public CartModel(int product, int quantity, int userid, float price) {
+        this.product = product;
+        this.quantity = quantity;
+        this.userid = userid;
+        this.price = price;
     }
+
+    public int getUserid() {
+        return userid;
+    }
+
+    public void setUserid(int userid) {
+        this.userid = userid;
+    }
+
 
     public int getCartId() {
-        return cartId;
+        return id;
     }
 
-    public void setCartId(int cartId) {
-        this.cartId = cartId;
+    public void setCartId(int id) {
+        this.id = id;
     }
 
-    public UserModel getUser() {
-        return user;
+    public int getProduct() {
+        return product;
     }
 
-    public void setUser(UserModel user) {
-        this.user = user;
+    public void setProduct(int product) {
+        this.product = product;
     }
 
-    public int getTotalCost() {
-        return totalCost;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public void setTotalCost(int totalCost) {
-        this.totalCost = totalCost;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
-    public List<cartItemsModel> getCartItemL() {
-        return cartItemL;
+    public float getPrice() {
+        return price;
     }
 
-    public void setCartItemL(List<cartItemsModel> cartItemL) {
-        this.cartItemL = cartItemL;
+    public void setPrice(float price) {
+        this.price = price;
     }
+
+
 }
-
-}
-
