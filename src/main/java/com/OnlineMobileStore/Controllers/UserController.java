@@ -1,3 +1,4 @@
+
 package com.OnlineMobileStore.Controllers;
 
 
@@ -17,6 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
+
 @RestController
 @RequestMapping("User")
 
@@ -25,7 +27,9 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/register")
+
     public ResponseEntity<UserModel> regsiterUser( @RequestBody UserModel user) {
+
         UserModel userNew = userService.addUser(user);
 
         return new ResponseEntity<>(userNew, HttpStatus.CREATED);

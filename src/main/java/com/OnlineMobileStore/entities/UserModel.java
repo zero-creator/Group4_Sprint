@@ -3,12 +3,14 @@ package com.OnlineMobileStore.entities;
 
 import javax.persistence.*;
 
+
 @Entity
 @Table(name = "UserModel")
 public class UserModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int userID;
+    @Column(unique=true)
     private String userName;
     private String userPassword;
     private Long mobileNumber;
@@ -76,3 +78,4 @@ public class UserModel {
         this.userRole = userRole;
     }
 }
+
