@@ -5,12 +5,14 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+
 @Entity
 @Table(name = "User_Model")
 public class UserModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int userID;
+    @Column(unique=true)
     private String userName;
     private String userPassword;
     private Long mobileNumber;
@@ -102,5 +104,5 @@ public class UserModel {
     }
 }
 
-}
+
 
