@@ -1,22 +1,18 @@
-package com.OnlineMobileStore.controllers;
+package com.OnlineMobileStore.Controllers;
 
+import com.OnlineMobileStore.Exceptions.MobileNotFoundException;
+import com.OnlineMobileStore.Services.MobileService;
 import com.OnlineMobileStore.entities.MobileModel;
-import com.OnlineMobileStore.exception.MobileNotFoundException;
-import com.OnlineMobileStore.repository.IMobileRepository;
-import com.OnlineMobileStore.service.IMobileService;
-import com.OnlineMobileStore.service.MobileService;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/api/MobileModel")
 
-public class MobileController{
+public class MobileController {
     @Autowired
     MobileService mobileService;
 
@@ -34,7 +30,7 @@ public class MobileController{
     }
 
     @PutMapping("/update")
-    public MobileModel updateProduct(@RequestBody MobileModel product) throws MobileNotFoundException{
+    public MobileModel updateProduct(@RequestBody MobileModel product) throws MobileNotFoundException {
         return mobileService.updateMobile(product);
     }
 
@@ -42,4 +38,10 @@ public class MobileController{
     public String deleteProduct(@PathVariable int id) throws MobileNotFoundException{
         return mobileService.deleteMobile(id);
     }
+
+    @GetMapping("/search/{name}")
+    public List<MobileModel> showmobileByName(@PathVariable String name) {
+        return mobileService.showAllMobileByName(name);
+    }
+
 }

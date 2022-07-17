@@ -2,12 +2,10 @@ package com.OnlineMobileStore.entities;
 
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 
 @Entity
-@Table(name = "User_Model")
+@Table(name = "UserModel")
 public class UserModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,24 +17,17 @@ public class UserModel {
     private String email_id;
     private String userRole;
 
-    @OneToMany(mappedBy = "user")
-    private List<OrderModel> orderL=new ArrayList<>();
-    @OneToOne(mappedBy = "user")
-    private CartModel care;
-
 
     public UserModel() {
     }
 
-    public UserModel(int userID, String userName, String userPassword, Long mobileNumber, String email_id, String userRole, List<OrderModel> orderL, CartModel care) {
+    public UserModel(int userID, String userName, String userPassword, Long mobileNumber, String email_id, String userRole) {
         this.userID = userID;
         this.userName = userName;
         this.userPassword = userPassword;
         this.mobileNumber = mobileNumber;
         this.email_id = email_id;
         this.userRole = userRole;
-        this.orderL = orderL;
-        this.care = care;
     }
 
     public int getUserID() {
@@ -86,23 +77,5 @@ public class UserModel {
     public void setUserRole(String userRole) {
         this.userRole = userRole;
     }
-
-    public List<OrderModel> getOrderL() {
-        return orderL;
-    }
-
-    public void setOrderL(List<OrderModel> orderL) {
-        this.orderL = orderL;
-    }
-
-    public CartModel getCare() {
-        return care;
-    }
-
-    public void setCare(CartModel care) {
-        this.care = care;
-    }
 }
-
-
 
