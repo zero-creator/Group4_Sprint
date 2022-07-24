@@ -3,18 +3,17 @@ package com.OnlineMobileStore.entities;
 
 import javax.persistence.*;
 
-
 @Entity
 @Table(name = "UserModel")
 public class UserModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int userID;
-    @Column(unique=true)
     private String userName;
     private String userPassword;
     private Long mobileNumber;
-    private String email_id;
+    @Column(unique=true)
+    private String emailId;
     private String userRole;
 
 
@@ -26,7 +25,7 @@ public class UserModel {
         this.userName = userName;
         this.userPassword = userPassword;
         this.mobileNumber = mobileNumber;
-        this.email_id = email_id;
+        this.emailId = email_id;
         this.userRole = userRole;
     }
 
@@ -62,12 +61,12 @@ public class UserModel {
         this.mobileNumber = mobileNumber;
     }
 
-    public String getEmail_id() {
-        return email_id;
+    public String getEmailId() {
+        return emailId;
     }
 
-    public void setEmail_id(String email_id) {
-        this.email_id = email_id;
+    public void setEmailId(String emailId) {
+        this.emailId = emailId;
     }
 
     public String getUserRole() {
@@ -78,4 +77,3 @@ public class UserModel {
         this.userRole = userRole;
     }
 }
-

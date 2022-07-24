@@ -12,7 +12,7 @@ public class CartModel {
     //@OneToOne(cascade = CascadeType.ALL)
     //@JoinColumn(name = "product_id")
     private int product;//Foreign key
-
+    private String productName;
 
     private int quantity;
     private int userid;
@@ -21,11 +21,20 @@ public class CartModel {
     public CartModel() {
     }
 
-    public CartModel(int product, int quantity, int userid, float price) {
+    public CartModel(int product, int quantity, int userid, float price ,String productName) {
         this.product = product;
         this.quantity = quantity;
         this.userid = userid;
         this.price = price;
+        this.productName=productName;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
     public int getUserid() {
@@ -69,5 +78,11 @@ public class CartModel {
         this.price = price;
     }
 
+    public int getId() {
+        return id;
+    }
 
+    public void setId(int id) {
+        this.id = id;
+    }
 }
