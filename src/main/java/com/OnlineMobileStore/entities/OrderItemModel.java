@@ -1,38 +1,38 @@
 package com.OnlineMobileStore.entities;
 
 import javax.persistence.*;
-import javax.xml.crypto.Data;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-
+@Entity
+@Table(name = "OrderItemModel")
 public class OrderItemModel {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int Id;
-    @ManyToOne
-    @JoinColumn(name = "order_fk")
-    private OrderModel order;//Foreign key
-    @OneToOne
-    @JoinColumn(name = "mobile_fk")
-    private MobileModel mobile;//Foreign key
+
+    private int orderId;
+
+    private int mobileId;
+    private String mobileName;
     private int quantity;
-    private int totalCost;
-    private LocalDate dataOfOrder;
-
-    @OneToMany(mappedBy = "user")
-    private List<OrderModel> orderL=new ArrayList<>();
-
+    private float totalCost;
 
     public OrderItemModel() {
     }
 
-    public OrderItemModel(int id, OrderModel order, MobileModel mobile, int quantity, int totalCost, LocalDate dataOfOrder, List<OrderModel> orderL) {
-        Id = id;
-        this.order = order;
-        this.mobile = mobile;
+    public OrderItemModel(int orderId, int mobileId, int quantity, float totalCost,String mobileName) {
+        this.orderId = orderId;
+        this.mobileId = mobileId;
         this.quantity = quantity;
         this.totalCost = totalCost;
-        this.dataOfOrder = dataOfOrder;
-        this.orderL = orderL;
+        this.mobileName=mobileName;
+    }
+
+    public String getMobileName() {
+        return mobileName;
+    }
+
+    public void setMobileName(String mobileName) {
+        this.mobileName = mobileName;
     }
 
     public int getId() {
@@ -43,20 +43,20 @@ public class OrderItemModel {
         Id = id;
     }
 
-    public OrderModel getOrder() {
-        return order;
+    public int getOrderId() {
+        return orderId;
     }
 
-    public void setOrder(OrderModel order) {
-        this.order = order;
+    public void setOrderId(int orderId) {
+        this.orderId = orderId;
     }
 
-    public MobileModel getMobile() {
-        return mobile;
+    public int getMobileId() {
+        return mobileId;
     }
 
-    public void setMobile(MobileModel mobile) {
-        this.mobile = mobile;
+    public void setMobileId(int mobileId) {
+        this.mobileId = mobileId;
     }
 
     public int getQuantity() {
@@ -67,30 +67,11 @@ public class OrderItemModel {
         this.quantity = quantity;
     }
 
-    public int getTotalCost() {
+    public float getTotalCost() {
         return totalCost;
     }
 
-    public void setTotalCost(int totalCost) {
+    public void setTotalCost(float totalCost) {
         this.totalCost = totalCost;
     }
-
-    public LocalDate getDataOfOrder() {
-        return dataOfOrder;
-    }
-
-    public void setDataOfOrder(LocalDate dataOfOrder) {
-        this.dataOfOrder = dataOfOrder;
-    }
-
-    public List<OrderModel> getOrderL() {
-        return orderL;
-    }
-
-    public void setOrderL(List<OrderModel> orderL) {
-        this.orderL = orderL;
-    }
 }
-
-}
-

@@ -2,26 +2,19 @@ package com.OnlineMobileStore.Services;
 
 import com.OnlineMobileStore.entities.CategoryModel;
 import com.OnlineMobileStore.Repositories.CategoryRepository;
-import com.OnlineMobileStore.Services.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.LinkedHashSet;
+import java.util.Optional;
 import java.util.Set;
-
-
-
-
-
-
-
 
 
     @Service
     public class CategoryServiceImpl implements CategoryService {
 
         @Autowired
-        private CategoryRepository categoryRepository;
+        CategoryRepository categoryRepository;
 
         @Override
         public CategoryModel addCategory(CategoryModel category) {
@@ -39,8 +32,8 @@ import java.util.Set;
         }
 
         @Override
-        public CategoryModel getCategory(Integer categoryId) {
-            return null;
+        public Optional<CategoryModel> getCategory(int Id) {
+            return categoryRepository.findById(Id);
         }
 
 
